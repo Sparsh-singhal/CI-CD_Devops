@@ -1,0 +1,22 @@
+name: Multi Trigger Detective
+
+on:
+    push:
+    pull_request: 
+    workflow_dispatch:
+
+jobs:
+    detect:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show the trigger
+              run: echo "this workflow was triggered by a(n) ${{github.event_name}} event."
+            - name: push
+              if: github.event_name == 'push'
+              run: 
+                echo "pushed to ${{github.ref_name}}"
+            - name: pull_request
+              if: github.event_name == 'pull_request'
+              run: echo "source ${{github.head_ref}} to ${{github.base_ref}}"
+            - name: last job
+              run: echo "Detective work complete"
