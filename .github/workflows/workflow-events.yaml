@@ -1,0 +1,17 @@
+name: Workflow Events
+
+on:
+    push: #trigger if we push code on repo using git or github
+    pull_request: #if we create pull request using github
+    schedule:
+        - cron: '*/5 * * * *' #cron job 
+    workflow_dispatch: #if we manually run this workflow
+#cron job syntax is an expresion containing 5 characters
+# each * denotes minutes, hours, day, month and day of week respectively
+# 
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show the trigger
+              run: echo "this workflow was triggered by a(n) ${{github.event_name}} event." #will show what triggered this workflow event

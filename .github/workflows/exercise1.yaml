@@ -1,0 +1,55 @@
+name: Excercise 1
+
+on: push
+
+jobs:
+    system-info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: System info
+              run: | 
+                   cat /etc/os-release
+                   uname -a
+            - name: Print free disk space
+              run: df -h
+
+            - name: Print current date and time
+              run: date
+
+            - name: Install tree
+              run: |
+                   sudo apt-get update
+                   sudo apt-get install -y tree
+
+            - name: Display home directory structure (2 levels deep)
+              run: tree -L 2 ~
+
+    tool-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install jq
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y jq
+
+            - name: Create report.json
+              run: |
+                cat << 'EOF' > report.json
+                {
+                "status": "success",
+                "environment": "github-actions",
+                "version": "1.0.0"
+                }
+                EOF
+
+            - name: Read a value using jq
+              run: jq -r '.status' report.json
+
+            - name: Print installed versions of python3, git, and jq
+              run: |
+                   python3 --version
+                   git --version
+                   jq --version
+
+            - name: Finish report
+              run: echo "Report complete"
