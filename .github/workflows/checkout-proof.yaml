@@ -1,0 +1,23 @@
+name: Checkout Proof
+
+on:
+    workflow_dispatch:
+    push:
+
+jobs:
+    proof:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Current directory path
+              run: |
+                   pwd
+                   ls
+            - name: Checkout repository
+              uses: actions/checkout@v7
+            - name: Contents after checkout
+              run: ls
+            - name: Number of files
+              run: ls | wc -l
+            - name: Finishing Checkout Proof
+              run: echo "Proof Captured"
+              
