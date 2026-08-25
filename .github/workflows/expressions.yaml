@@ -1,5 +1,5 @@
 name: expressions
-run-name: Using expressions | DEBUG - ${{inputs.debug && 'ON' || 'OFF'}}
+run-name: Using expressions | DEBUG - ${{inputs.debug && 'ON' || 'OFF'}} # ternary expression return on if debug is true, otherwise return off
 
 on:
     workflow_dispatch:
