@@ -1,7 +1,7 @@
 name: ordered pipeline
 
 on:
-    push:
+    # push:
     workflow_dispatch:
 
 jobs:
