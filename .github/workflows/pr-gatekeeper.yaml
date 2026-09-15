@@ -1,7 +1,7 @@
 name: PR Gatekeeper
 
 on:
-    pull_request:
+    # pull_request:
     #     branches:
     #        - main
     workflow_dispatch:

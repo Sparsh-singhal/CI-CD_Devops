@@ -1,1 +1,12 @@
 node_modules 
+*.pem
+.terraform/
+Demo_cs.pem.pub
+*.tfstate
+*.tfstate.*
+*.tfstate.lock.info
+.terraformrc
+terraform.rc
+crash.log
+crash.*.log
+*.log
